@@ -38,6 +38,7 @@
     render: function () {
       var models = this.state.data,
         headers = this.props.headers || this.props.cols,
+        alert = <div className="alert alert-danger" role="alert"><strong>{this.state.message}</strong></div>,
         tableRows = models.map(function (model, i) {
           return (
             <TableItem
@@ -63,7 +64,7 @@
               </table>
             </div>
           </div>
-          <div className="alert alert-danger" role="alert">{this.state.message}</div>
+          { this.state.message ? alert : '' }
         </div>
       );
     }
